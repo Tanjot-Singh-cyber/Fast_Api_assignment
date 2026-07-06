@@ -2,43 +2,43 @@ from fastapi import FastAPI
 
 app = FastAPI()
 
-# @app.get("/home")
-# def home():
-#     return {
-#         "message" : "Welcome to my first FastAPi assignment"
-#     }
+ @app.get("/home")
+ def home():
+     return {
+         "message" : "Welcome to my first FastAPi assignment"
+     }
 
-# @app.get("/about")
-# def about():
-#     return {
-#         "student_name" : "Tanjot Singh",
-#         "Course" : "FastAPI",
-#         "Topic" : "Fast API assignment",
-#         "Status" : "Learning"
-#     }
+ @app.get("/about")
+ def about():
+     return {
+         "student_name" : "Tanjot Singh",
+         "Course" : "FastAPI",
+         "Topic" : "Fast API assignment",
+         "Status" : "Learning"
+     }
 
-# @app.get("/trainer")
-# def about():
-#     return {
-#         "Name" : "John Doe",
-#         "Role" : "Trainer",
-#         "Subject" : "FastAPI"
-#     }
+ @app.get("/trainer")
+ def about():
+     return {
+         "Name" : "John Doe",
+         "Role" : "Trainer",
+         "Subject" : "FastAPI"
+     }
 
-# @app.get("/courses")
-# def about():
-#     return [
-#         {
-#             "id" : 1,
-#             "name" : "Python Basics",
-#             "duration" : "1 week"
-#         },
+ @app.get("/courses")
+ def about():
+     return [
+         {
+             "id" : 1,
+             "name" : "Python Basics",
+             "duration" : "1 week"
+         },
 
-#         {
-#             "id" : 2,
-#             "name" : "Cyber Security",
-#             "duration" : "1 week"
-#         },
+         {
+             "id" : 2,
+             "name" : "Cyber Security",
+             "duration" : "1 week"
+         },
 
 #         {
 #             "id" : 3,
@@ -112,10 +112,10 @@ app = FastAPI()
 #     }
 
 
-# # /students/{student_id}/courses/{course_name}
-# @app.get('/students/{student_id}/courses/{course_name}')
-# def get_student_course(student_id: int, course_name: str):
-#     return {
-#         "student_id" : student_id,
-#         "course_name" : course_name
-#     }                                                                       
+ # /students/{student_id}/courses/{course_name}
+ @app.get('/students/{student_id}/courses/{course_name}')
+ def get_student_course(student_id: int, course_name: str):
+    return {
+         "student_id" : student_id,
+        "course_name" : course_name
+    }                                                                       
