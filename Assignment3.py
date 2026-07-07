@@ -1,8 +1,7 @@
-from fastapi import FastAPI, status
+from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 
 app = FastAPI()
-
 
 notes = [
     {
@@ -31,21 +30,27 @@ class NoteCreate(BaseModel):
 
 @app.get("/")
 def home():
-    return {
-        "message": "Notes API is running"
-    }
+    return {"message": "Notes API is running"}
+
 
 @app.get("/notes")
 def get_notes():
     return notes
 
 
-@app.post("/notes", status_code=status.HTTP_201_CREATED)
+@app.post("/notes")
 def create_note(note: NoteCreate):
-    
-    new_id = max([note["id"] for note in notes], default=0) + 1
 
-    
+    # Check for duplicate title
+    for existing_note in notes:
+        if existing_note["title"].lower() == note.title.lower():
+            raise HTTPException(
+                status_code=400,
+                detail="Note with this title already exists."
+            )
+
+    new_id = max([n["id"] for n in notes], default=0) + 1
+
     new_note = {
         "id": new_id,
         "title": note.title,
@@ -56,7 +61,6 @@ def create_note(note: NoteCreate):
 
     notes.append(new_note)
 
-    # Return success response
     return {
         "message": "Note added successfully",
         "note": new_note
