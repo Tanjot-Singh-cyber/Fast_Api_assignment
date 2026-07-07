@@ -40,76 +40,76 @@ app = FastAPI()
              "duration" : "1 week"
          },
 
-#         {
-#             "id" : 3,
-#             "name" : "Networking Fundamentals",
-#             "duration" : "1 week"
-#         }
-#     ]
+         {
+             "id" : 3,
+             "name" : "Networking Fundamentals",
+             "duration" : "1 week"
+         }
+     ]
 
 
 
-# @app.get("/college")
-# def about():
-#     return {
-#         "College name" : "MIET",
-#         "Location" : "Kot Bhalwal",
-#         "Department" : "Computer Science Engineering(Cybersecurity)",
-#         "Current_module" : "FastAPI Basics"
-#     }
+ @app.get("/college")
+ def about():
+     return {
+         "College name" : "MIET",
+         "Location" : "Kot Bhalwal",
+         "Department" : "Computer Science Engineering(Cybersecurity)",
+         "Current_module" : "FastAPI Basics"
+     }
 
-# @app.get("/technologies")
-# def about():
-#     return [
-#         "Python",
-#         "FastAPI",
-#         "JSON",
-#         "HTTP",
-#         "RestAPI" 
-#     ]
-# # Dynamic parameters 
-# @app.get('/students/{student_id}')
-# def get_students(student_id: int):
-#     return[ {
-#         "id" : 1,
-#         "name" : "Tanjot Singh",
-#         "age" : 21,
-#         "course" : "FastAPI"
-#     },
-#     {
-#         "id" : 2,
-#         "name" : "ayush",
-#         "age" : 22,
-#         "course" : "Cyber Security"
-#     },
-#     {
-#         "id" : 3,
-#         "name" : "Mahaal",
-#         "age" : 20,
-#         "course" : "Networking Fundamentals"
-#     }
-#     ]
+ @app.get("/technologies")
+ def about():
+     return [
+         "Python",
+         "FastAPI",
+         "JSON",
+         "HTTP",
+         "RestAPI" 
+     ]
+# Dynamic parameters 
+ @app.get('/students/{student_id}')
+ def get_students(student_id: int):
+     return[ {
+         "id" : 1,
+         "name" : "Tanjot Singh",
+         "age" : 21,
+         "course" : "FastAPI"
+     },
+     {
+         "id" : 2,
+         "name" : "ayush",
+         "age" : 22,
+         "course" : "Cyber Security"
+     },
+     {
+         "id" : 3,
+         "name" : "Mahaal",
+         "age" : 20,
+         "course" : "Networking Fundamentals"
+     }
+     ]
 
 
 
-# #DYNAMIC PATH PARAMETERS
-# @app.get('/courses/{course_id}')
-# def get_course_by_id(course_id: str):
-#     return {
+#DYNAMIC PATH PARAMETERS
+ @app.get('/courses/{course_id}')
+ def get_course_by_id(course_id: str):
+     return {
         
-#         "id" : course_id,  
-#         "name" : "Python Basics",
-#         "duration" : "1 week"
-#     }
+         "id" : course_id,  
+         "name" : "Python Basics",
+         "duration" : "1 week"
+     }
 
-# @app.get('/books/{book_id}/author/{author_id}')
-# def get_book_author(book_id: int, author_id: int):
-#     return {
-#         "book_id" : book_id,
-#         "author_id" : author_id,
-#         "book_name" : "Python Basics",
-#         "author_name" : "John Doe"
-#     }
+ @app.get('/books/{book_id}/author/{author_id}')
+def get_book_author(book_id: int, author_id: int):
+     return {
+         "book_id" : book_id,
+         "author_id" : author_id,
+         "book_name" : "Python Basics",
+         "author_name" : "John Doe"
+     }
 
 
  # /students/{student_id}/courses/{course_name}
