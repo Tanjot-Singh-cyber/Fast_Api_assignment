@@ -3,7 +3,7 @@ from pydantic import BaseModel
 
 app = FastAPI()
 
-# Starter Data
+
 notes = [
     {
         "id": 1,
@@ -21,32 +21,31 @@ notes = [
     }
 ]
 
-# Request Body Model
+
 class NoteCreate(BaseModel):
     title: str
     content: str
     category: str
     priority: str
 
-# Home Route
+
 @app.get("/")
 def home():
     return {
         "message": "Notes API is running"
     }
 
-# Get All Notes
 @app.get("/notes")
 def get_notes():
     return notes
 
-# Create a New Note
+
 @app.post("/notes", status_code=status.HTTP_201_CREATED)
 def create_note(note: NoteCreate):
-    # Generate next ID
+    
     new_id = max([note["id"] for note in notes], default=0) + 1
 
-    # Create new note dictionary
+    
     new_note = {
         "id": new_id,
         "title": note.title,
@@ -55,7 +54,6 @@ def create_note(note: NoteCreate):
         "priority": note.priority
     }
 
-    # Add new note to list
     notes.append(new_note)
 
     # Return success response
